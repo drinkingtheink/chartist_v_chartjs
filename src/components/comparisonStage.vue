@@ -2,8 +2,12 @@
   <div class="comparison_stage">
     <h1>{{ msg }}</h1>
     <section class="comparison_stage--columns">
-      <div class="comparison_stage--left"></div>
-      <div class="comparison_stage--right"></div>
+      <article class="comparison comparison--bar">
+        <div class="comparison_stage--left">
+          <chartjsBar :passedData="bar.data"></chartjsBar>
+        </div>
+        <div class="comparison_stage--right"></div>
+      </article>
     </section>
   </div>
 </template>
@@ -11,9 +15,30 @@
 <script>
 export default {
   name: 'comparisonStage',
+  components: {
+    'chartjsBar': () => import('./chartjs/chartjsBar')
+  },
   data () {
     return {
-      msg: 'Compare Chartist with Chart.js'
+      msg: 'Compare Chartist with Chart.js',
+      bar: {
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          datasets: [
+            {
+              label: 'GitHub Commits',
+              backgroundColor: '#f87979',
+              data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+            }
+          ]
+        }
+      },
+      donut: {
+        data: null
+      },
+      line: {
+        data: null
+      }
     }
   }
 }
@@ -40,5 +65,9 @@ a {
   width: 90vw;
   background: white;
   min-height: 40rem;
+}
+
+.comparison {
+  display: flex;
 }
 </style>
