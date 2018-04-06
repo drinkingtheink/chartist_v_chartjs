@@ -25,4 +25,4 @@ background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox=
   color: #2c3e50;
   margin-top: 20px;
 }
-</style>
+<style>

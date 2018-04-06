@@ -6,7 +6,9 @@
         <div class="comparison_stage--left">
           <chartjsBar :passedData="bar.data"></chartjsBar>
         </div>
-        <div class="comparison_stage--right"></div>
+        <div class="comparison_stage--right">
+          <chartistBar :passedData="bar.data"></chartistBar>
+        </div>
       </article>
     </section>
   </div>
@@ -16,7 +18,8 @@
 export default {
   name: 'comparisonStage',
   components: {
-    'chartjsBar': () => import('./chartjs/chartjsBar')
+    'chartjsBar': () => import('./chartjs/chartjsBar'),
+    'chartistBar': () => import('./chartist/chartistBar')
   },
   data () {
     return {
